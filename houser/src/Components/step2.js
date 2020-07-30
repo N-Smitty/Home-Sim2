@@ -20,21 +20,25 @@ class step2 extends Component {
     render() {
         return (
 
-            <div>
+            <div className='step2'>
+                <form>
+                <div className='step2-header'>
                 <h2>Add New Listing</h2>
-            <form>
+                <Link to='/'>
+                <button className='cancel-btn'>Cancel</button>
+                </Link>
+                </div>
             <label>Image URL:</label>
                 <input placeholder='image-url' type='text' name='image' onChange={this.handleChange}></input>
+            <div className='step2-btns'>
                 <Link to='/wizard/step1'>
-                <button>Previous Step</button>
+                <button className='prev-btn'>Previous Step</button>
                 </Link>
                 <Link to='/wizard/step3'>
-                <button> Next Step</button>
+                <button className='next-btn'> Next Step</button>
                 </Link>
-                <Link to='/'>
-                <button>Cancel</button>
-                </Link>
-            </form>
+            </div>
+                </form>
             </div>
 
         )

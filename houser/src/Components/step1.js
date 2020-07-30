@@ -12,7 +12,9 @@ class step1 extends Component {
             address: '',
             city: '',
             state: '',
-            zip: 0
+            zip: 0,
+            mortgage: 0,
+            rent: 0
         }
     }
 
@@ -26,23 +28,25 @@ class step1 extends Component {
         return (
 
             <div>
+            <form className='step1'>
+                <div className='step1-header-btn'>
                 <h2>Add New Listing</h2>
-            <form>
-                <label>Name:</label>
-                <input placeholder='Name' type='text' name='name' onChange={this.handleChange}></input>
-                <label>Address:</label>
-                <input placeholder='Address' type='text' name='address' onChange={this.handleChange}></input>  
-                <label>City:</label>
-                <input placeholder='City' type='text' name='city' onChange={this.handleChange}></input>   
-                <label>State:</label>
-                <input placeholder='State' type='text' name='state' onChange={this.handleChange}></input>   
-                <label>Zip:</label>
-                <input placeholder='Zip' type='integer' name='zip' onChange={this.handleChange}></input>
-                <Link to='/wizard/step1' style={{textDecoration: 'none'}}>
-                <button>Next Step</button>
-                </Link>
                 <Link to='/'>
-                <button>Cancel</button>
+                <button className='cancel-btn'>Cancel</button>
+                </Link>
+                </div>
+                <label>Property Name:</label>
+                <input type='text' name='name' onChange={this.handleChange}></input>
+                <label>Address:</label>
+                <input type='text' name='address' onChange={this.handleChange}></input>  
+                <label>City:</label>
+                <input type='text' name='city' onChange={this.handleChange}></input>   
+                <label>State:</label>
+                <input type='text' name='state' onChange={this.handleChange}></input>   
+                <label>Zip:</label>
+                <input placeholder='0' type='integer' name='zip' onChange={this.handleChange}></input>
+                <Link to='/wizard/step2' style={{textDecoration: 'none'}}>
+                <button className='next-btn'>Next Step</button>
                 </Link>
             </form>
             </div>

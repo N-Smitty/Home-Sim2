@@ -44,12 +44,16 @@ class Dashboard extends Component {
         })
         return (
             <div className='dashboard'>
+                <form>
+                <div className='dash-add-btn'>
                 <h2>Dashboard</h2>
-                <h4>Home Listings</h4>
                 <Link to='/wizard/step1' style={{textDecoration: 'none'}}>
-                <button>Add New Property</button>
+                <button className='add-btn'>Add New Property</button>
                 </Link>
+                </div>
+                <h4>Home Listings</h4>
                 {mappedHouses}
+                </form>
             </div>
         )
     }

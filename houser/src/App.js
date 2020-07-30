@@ -8,7 +8,7 @@ function App(props) {
     
       return (
         <HashRouter>
-          <div>
+          <div className='App'>
             <Header/>
             {routes}
           </div>
