@@ -14,36 +14,46 @@ class Dashboard extends Component {
         }
     }
 
-    componentDidMount() {
-        axios
-        .get('/api/houses')
-        .then(res => {
-            console.log(res);
-            this.setState({houses: res.data});
-        })
+    componentDidMount = () => {
+        this.getHouses();
+    };
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(prevState.houses)
+        if(prevState.houses.length !== this.state.houses.length) {
+            this.getHouses()
+        }
+    };
+
+    getHouses = () => {
+        axios.get('/api/houses')
+        .then(res => this.setState({houses: res.data}))
+        .catch(err => console.log(err))   
     }
+    
     
 
 
     render() {
         // reference passing props
         // console.log(this.props)
-        // const mappedHouses = this.state.houses.map((house) => {})
+        const mappedHouses = this.state.houses.map((house) => {
+            return (
+                <House house={house}/>
+            )
+        })
         return (
-            <div>
-                {/* {this.state.houses.map()} */}
-                    <h2>Dashboard</h2>
-                    <h4>Home Listings</h4>
-                {/* <House/>  */}
-                <button>
-                    <Link to='/wizard'>
-                    Add New Property
-                    </Link>
-                </button>
+            <div className='dashboard'>
+                <h2>Dashboard</h2>
+                <h4>Home Listings</h4>
+                <Link to='/wizard/step1' style={{textDecoration: 'none'}}>
+                <button>Add New Property</button>
+                </Link>
+                {mappedHouses}
             </div>
         )
     }
 }
 
-export default Dashboard;
+    export default Dashboard;
 
