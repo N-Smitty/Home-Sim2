@@ -8,11 +8,10 @@ module.exports = {
     },
 
     addHouse: async(req, res) => {
-        const { id } = req.params
-        const {name, address, city, state, zip} = req.body
+        const {name, address, city, state, zip, img, mortgage, rent} = req.body
         const db = req.app.get('db')
 
-        const newHouse = await db.add_house({id, name, address, city, state, zip})
+        const newHouse = await db.add_house({name, address, city, state, zip, img, mortgage, rent})
             res.status(200).send(newHouse)
     },
 

@@ -122,3 +122,8 @@ margin-right: 1px;
   margin-left: 20%;
   padding: 25px;
 }
+
+.addImg {
+  height: 20vh;
+  width: 20vw;
+}

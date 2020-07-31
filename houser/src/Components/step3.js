@@ -20,16 +20,20 @@ class step3 extends Component {
     }
 
     addHouse = () => {
-        const {id} = this.setState
-        const {name, address, city, state, zip} = this.state
+        // const {id} = this.setState
+        const {name, address, city, state, zip, img} = this.props
+        const {mortgage, rent} = this.state
         const body = {
-            name: name,
-            address: address,
-            city: city,
-            state: state,
-            zip: zip
+            name,
+            address,
+            city,
+            state,
+            zip,
+            img,
+            mortgage,
+            rent
         }
-        axios.post(`/api/house/${id}`, body)
+        axios.post(`/api/house`, body)
         .then(res => {
             console.log(res)
             this.props.history.push('/')
@@ -53,7 +57,7 @@ class step3 extends Component {
                 <label>Desired Monthly Rent:</label>
                 <input placeholder='0' type='text' name='rent' value={this.state.rent} onChange={this.handleChange}></input>  
             <div className='step3-btns'>
-                <Link to='/wizard/step1'>
+                <Link to='/wizard/step2'>
                 <button className='prev-btn'>Previous Step</button>
                 </Link>
                 <Link to='/'>
@@ -78,4 +82,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect()(step3);
+export default connect(mapStateToProps)(step3);

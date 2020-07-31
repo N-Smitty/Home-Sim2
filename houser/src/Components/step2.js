@@ -34,7 +34,7 @@ class step2 extends Component {
                 </div>
                 <div className='imageHolder'>
                 {!img? <img src='https://tc-itservices.com/wp-content/uploads/2018/07/lenovo-camera1-300x225.png' />
-                : <img src={img} />}
+                : <img  className='addImg' src={img} />}
                 </div>
             <label>Image URL:</label>
                 <input placeholder='image-url' type='text' name='img' onChange={this.handleChange}></input>

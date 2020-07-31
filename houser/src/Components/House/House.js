@@ -15,9 +15,8 @@ class House extends Component {
     render() {
         // console.log(this.props)
         return (
-
             <div className='houses'>
-                {/* <img>Image Placeholder{this.props.house.img}</img> */}
+                <img className='addImg' src={this.props.house.img} alt='house' />
                 <span> Property Name:{this.props.house.name} </span>
                 <span>Address:{this.props.house.address}</span>
                 <span>City:{this.props.house.city}</span>
@@ -26,7 +25,7 @@ class House extends Component {
                 <span>Monthly Mortgage:{this.props.house.mortgage}</span>
                 <span>Desired Rent:{this.props.house.rent}</span>
                 <div>
-                <button ClassName='delete-btn' onClick={this.deleteHouse}>X</button>
+                <button className='delete-btn' onClick={this.deleteHouse}>X</button>
                 </div>
             </div>
         )
