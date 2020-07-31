@@ -1,18 +1,6 @@
-import {createStore} from 'redux';
-
-const initialState = {
-    name: '',
-    address: '',
-    city: '',
-    state: '',
-    zip: 0
-}
-    export default function reducer(state = initialState, action) {
-    switch(action.type) {
-
-
-
-    default:
-    return state;    
-    }
-}
+// import the store and apply middleware
+import { createStore, applyMiddleware } from 'redux'
+import userReducer from './reducer'
+// import promise middleware
+import promiseMiddleware from 'redux-promise-middleware'
+export default createStore(userReducer, applyMiddleware(promiseMiddleware))

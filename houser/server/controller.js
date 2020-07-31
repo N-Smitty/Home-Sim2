@@ -13,7 +13,7 @@ module.exports = {
         const db = req.app.get('db')
 
         const newHouse = await db.add_house({id, name, address, city, state, zip})
-        return res.status(200).send(newHouse)
+            res.status(200).send(newHouse)
     },
 
     deleteHouse: async (req, res) => {
@@ -21,6 +21,6 @@ module.exports = {
         const db = req.app.get('db')
 
         const updatedHomes = await db.delete_house(id)
-        return res.status(200).send(updatedHomes)
+            res.status(200).send(updatedHomes)
     }
 }

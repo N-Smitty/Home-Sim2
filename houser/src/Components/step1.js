@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import store from '../Ducks/store'
+import {connect} from 'react-redux';
+import {addPropInfo} from '../Ducks/actionCreators';
 
 class step1 extends Component {
     constructor(props) {
@@ -13,8 +15,9 @@ class step1 extends Component {
             city: '',
             state: '',
             zip: 0,
-            mortgage: 0,
-            rent: 0
+            // img: '',
+            // mortgage: 0,
+            // rent: 0
         }
     }
 
@@ -25,6 +28,7 @@ class step1 extends Component {
     }
 
     render() {
+        const {name, address, city, state, zip} = this.state;
         return (
 
             <div>
@@ -46,13 +50,19 @@ class step1 extends Component {
                 <label>Zip:</label>
                 <input placeholder='0' type='integer' name='zip' onChange={this.handleChange}></input>
                 <Link to='/wizard/step2' style={{textDecoration: 'none'}}>
-                <button className='next-btn'>Next Step</button>
+                <button onClick={() => this.props.addPropInfo(name, address, city, state, zip) } className='next-btn'>Next Step</button>
                 </Link>
             </form>
             </div>
 
         )
     }
-}
+};
 
-export default step1;
+const mapDispatchToProps = {
+    addPropInfo
+};
+
+export default connect(null, mapDispatchToProps)(step1);
+
+//connect(mapStateToProps, mapDispatchToProps)

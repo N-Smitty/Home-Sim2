@@ -3,3 +3,5 @@ insert into houses
 values (
     ${name}, ${address}, ${city}, ${state}, ${zip}
     )
+    
+returning *

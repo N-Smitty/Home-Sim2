@@ -27,7 +27,7 @@ const massive = require('massive'),
     })
 
     app.get('/api/houses', mainCtrl.getHouses) 
-    app.post('/api/house', mainCtrl.addHouse)
+    app.post('/api/house/:id', mainCtrl.addHouse)
     app.delete('/api/house/:id', mainCtrl.deleteHouse)
 
     app.listen(SERVER_PORT, () => {console.log(`Natalie's server is tuned in on port ${SERVER_PORT}`)});

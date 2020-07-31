@@ -3,6 +3,7 @@ import {HashRouter} from 'react-router-dom';
 import routes from './routes';
 import './App.css';
 import Header from './Components/Header/Header';
+import {connect} from 'react-redux';
 
 function App(props) {
     
@@ -18,7 +19,9 @@ function App(props) {
       )
     } 
 
-export default App;
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps)(App);
 
 
 //no state, no methods
